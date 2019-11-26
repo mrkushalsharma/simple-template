@@ -1,3 +1,8 @@
+<?php
+    // Initialize the session
+    session_start();
+    $_SESSION['loggedin_user'] =null;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +17,7 @@
   <title>SB Admin - Login</title>
 
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin.css" rel="stylesheet">
+  <link href="../css/sb-admin.css" rel="stylesheet">
 
 </head>
 
@@ -22,17 +27,26 @@
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">Login</div>
       <div class="card-body">
-        <form>
+        <form action="loginSubmit.php" method="POST">
+        <?php 
+            if(isset($_GET['msg'])){
+                $msg=$_GET['msg'];
+                if($msg=="wrong"){ ?>
+            <h2 style="color:#F00;">Wrong Username or Password!!!</h2>
+            <?php
+                }
+            }
+        ?>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
-              <label for="inputEmail">Email address</label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+              <label for="email">Email address</label>
             </div>
           </div>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
-              <label for="inputPassword">Password</label>
+              <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="required">
+              <label for="password">Password</label>
             </div>
           </div>
           <div class="form-group">
@@ -43,10 +57,11 @@
               </label>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="index.html">Login</a>
+          <button class="btn btn-primary btn-block" name="submit" type="submit" value="Register">Login</button> 
+            <input type="hidden" name="_token" value="{{ Session::token() }}">
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="register.html">Register an Account</a>
+          <a class="d-block small mt-3" href="register.php">Register an Account</a>
         </div>
       </div>
     </div>
