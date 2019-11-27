@@ -2,8 +2,8 @@
 	require_once'../connection.php';
     
     $sql="SELECT * FROM posts";
-    $result=mysqli_query($check,$sql);
-    $row=mysqli_fetch_row($result);
+    $result = mysqli_query($check,$sql);
+    $rowNumber = mysqli_num_rows($result);
 ?>
 
 <!DOCTYPE html>
@@ -32,17 +32,21 @@
                         </thead>
                         <tbody>
                         <?php 
-                        if($row>0){ ?>
+                        if($rowNumber > 0){ 
+                            while($row = mysqli_fetch_assoc($result)) {
+                                ?>
                             <tr>
-                                <td><?php $row[0] ?></td>
-                                <td><?php $row[1] ?></td>
-                                <td><?php $row[2] ?></td>
+                                <td><?php $row["id"] ?></td>
+                                <td><?php $row["title"] ?></td>
+                                <td><?php $row["description"] ?></td>
                                 <td>
                                     <a href ="">Edit</a>
                                     <a href ="">Delete</a>
                                 </td>
                             </tr>
-                        <?php }else{
+                        <?php 
+                            }
+                        }else{
                             echo "<h1> No data Available</h1";
                         } ?>
                         </tbody>
