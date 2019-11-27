@@ -7,7 +7,10 @@
 		$email= $_POST['email'];
 		$password= $_POST['password'];
 		$confirmPassword= $_POST['confirmPassword'];
-
+		if($password != $confirmPassword){
+			echo "Password Wrong !!";
+			die();
+		}
 		$sql = "INSERT INTO users(name,email,password)
 				VALUES('$name','$email','$password')";
 

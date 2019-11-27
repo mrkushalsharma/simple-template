@@ -1,3 +1,11 @@
+<?php
+	require_once'../connection.php';
+    
+    $sql="SELECT * FROM posts";
+    $result=mysqli_query($check,$sql);
+    $row=mysqli_fetch_row($result);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <?php include 'head.php'; ?>
@@ -23,15 +31,20 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <?php 
+                        if($row>0){ ?>
                             <tr>
-                                <td>1</td>
-                                <td>this is title</td>
-                                <td>This is Description</td>
+                                <td><?php $row[0] ?></td>
+                                <td><?php $row[1] ?></td>
+                                <td><?php $row[2] ?></td>
                                 <td>
                                     <a href ="">Edit</a>
                                     <a href ="">Delete</a>
                                 </td>
                             </tr>
+                        <?php }else{
+                            echo "<h1> No data Available</h1";
+                        } ?>
                         </tbody>
                     </table>
                 </div>
