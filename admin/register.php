@@ -3,7 +3,6 @@
 // Initialize the session
 session_start();
 $_SESSION['loggedin_user'] =null;
-
 ?>
 
 <!DOCTYPE html>

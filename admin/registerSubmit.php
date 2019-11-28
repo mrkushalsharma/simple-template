@@ -1,9 +1,9 @@
 <?php
-	include '../connection.php';
-
-	if(isset($_POST['btnSubmit'])){
+	require_once '../connection.php';
+	if(isset($_POST['submit'])){
 
 		$name=$_POST['name'];
+
 		$email= $_POST['email'];
 		$password= $_POST['password'];
 		$confirmPassword= $_POST['confirmPassword'];

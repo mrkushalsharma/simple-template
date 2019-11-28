@@ -1,7 +1,7 @@
 <?php
     require_once'../connection.php';
-    
     if(isset($_POST['submit'])){
+
 		$title=$_POST['title'];
         $description=$_POST['description'];	
         

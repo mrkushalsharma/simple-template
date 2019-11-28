@@ -1,7 +1,7 @@
 <?php
     require_once'../connection.php';
     $id = $_GET['id'];
-    $sql="SELECT * FROM users WHERE id='$id'";
+    $sql="DELETE FROM posts WHERE id='$id'";
     $result = mysqli_query($check, $sql);
     if ($result) {
         echo "Record deleted successfully";

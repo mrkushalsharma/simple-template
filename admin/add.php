@@ -13,16 +13,16 @@
             <div id="content-wrapper">
                 <div class="container-fluid">
                     <!-- contents-->
-                    <form action="#" method="POST">
+                    <form action="addPost.php" method="POST">
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input type="text" name="title"/>
+                            <input type="text" name="title" require/>
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <textarea name="description"></textarea>
+                            <textarea name="description" require></textarea>
                         </div>
-                        <input class="btn btn-primary" type="submit" value="submit" />
+                        <button class="btn btn-primary " name="submit" type="submit" value="addPost">Add Post</button> 
                     </form>
                 </div>
                 <!-- Sticky Footer -->

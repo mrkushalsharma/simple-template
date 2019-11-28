@@ -6,5 +6,5 @@
         die("Connection Couldn't be established.");
     }
     else{
-        echo " ";	
+        echo "";	
     }

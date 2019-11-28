@@ -21,7 +21,7 @@
             <div id="content-wrapper">
                 <div class="container-fluid">
                     <!-- contents-->
-                    <table class="table table-dark">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -36,18 +36,16 @@
                             while($row = mysqli_fetch_assoc($result)) {
                                 ?>
                             <tr>
-                                <td><?php $row["id"] ?></td>
-                                <td><?php $row["title"] ?></td>
-                                <td><?php $row["description"] ?></td>
+                                <td><?php echo $row["id"] ?></td>
+                                <td><?php echo $row["title"] ?></td>
+                                <td><?php echo $row["description"] ?></td>
                                 <td>
-                                    <a href ="">Edit</a>
-                                    <a href ="">Delete</a>
+                                    <a href="editPost.php?id=<?php echo $row["id"]?>">Edit</a>
+                                    <a href ="editPost.php?id=<?php echo $row["id"]?>">Delete</a>
                                 </td>
                             </tr>
                         <?php 
                             }
-                        }else{
-                            echo "<h1> No data Available</h1";
                         } ?>
                         </tbody>
                     </table>
