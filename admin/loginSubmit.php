@@ -12,8 +12,9 @@
             $row = mysqli_fetch_assoc($result);
             session_start();
             $_SESSION["loggedin_user"] = $row['id'];
-            $x=$_SESSION["loggedin_user"];
+            print_r($_SESSION);
             header('location:index.php');
+            exit;
         }
         else{
             header('location:login.php?msg=wrong');

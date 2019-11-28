@@ -1,3 +1,8 @@
+<?php
+    require_once'../connection.php';
+
+    require_once'checkSession.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
     <?php include 'head.php'; ?>

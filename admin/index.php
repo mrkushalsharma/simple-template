@@ -1,6 +1,8 @@
 <?php
-	require_once'../connection.php';
+    require_once'../connection.php';
     
+    require_once'checkSession.php';
+
     $sql="SELECT * FROM posts";
     $result = mysqli_query($check,$sql);
     $rowNumber = mysqli_num_rows($result);
